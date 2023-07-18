@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Stock Tracker Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The Stock Tracker is a React application that fetches and displays real-time stock prices, historical stock data, and related news articles using the IEX Cloud API and the OpenAI API. It allows users to track stock prices for multiple tickers, view the past month's price changes in a line chart, and read the latest news articles related to a particular stock.
 
-## Available Scripts
+This application leverages modern React practices such as Hooks, functional components, and the React Router library for routing. 
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Track real-time stock prices for multiple tickers
+- View percentage and dollar changes compared to the previous trading day's closing price
+- Visualize the past month's price changes in a line chart
+- Read the latest news articles related to a particular stock using the OpenAI API
+- Add and remove stocks from the tracking list
+- Error handling for non-existent or invalid stock ticker symbols
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## News Feature Using OpenAI API
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The news articles related to a particular stock are fetched using OpenAI API. The articles returned by the API are summaries written by GPT-4, a state-of-the-art language model by OpenAI. Each news article includes a clickable headline and a brief summary.
 
-### `npm test`
+This component fetches the news data when it is mounted or when the ticker prop changes. All API requests are handled in an asynchronous manner to provide a smooth user experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `npm run build`
+1. `App.js`: The main component which holds the state of the user-inputted ticker and a list of valid tickers. The App component includes routing to different components using the React Router library.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. `components/StockRow.js`: Renders a row for a particular stock ticker, showing the current price, the dollar change, and the percentage change compared to the previous trading day's closing price. When a stock row is mounted, it fetches the latest stock price and the previous day's closing price.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. `components/StockChart.js`: Renders a line chart showing the past month's closing prices for a particular stock. The chart is created using the Recharts library. This component fetches the past month's daily price data when it is mounted or when the ticker prop changes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. `components/News.js`: Fetches and displays a list of the latest news articles related to a particular stock using the OpenAI API. Each news article includes a clickable headline and a summary. This component fetches the news data when it is mounted or when the ticker prop changes.
 
-### `npm run eject`
+5. `resources/stock.js`: Contains functions for fetching stock data from the IEX Cloud API, as well as helper functions for formatting the API data and determining valid business days.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Video Demo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Click the above image to see a video demonstration of the application. This video covers all the major features of the application, including tracking real-time stock prices, visualizing historical data, and fetching the latest news articles related to a particular stock.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+1. Clone this repository
+2. Run `npm install` to install all necessary dependencies
+3. Add your IEX Cloud API token to the `iex.js` file in the config folder
+4. Run `npm start` to start the application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Dependencies
+- React
+- Axios
+- React Router DOM
+- Recharts
+- Bootstrap
+- OpenAI
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
