@@ -16,7 +16,7 @@ This application leverages modern React practices such as Hooks, functional comp
 
 ## News Feature Using OpenAI API
 
-The news articles related to a particular stock are fetched using OpenAI API. The articles returned by the API are summaries written by GPT-4, a state-of-the-art language model by OpenAI. Each news article includes a clickable headline and a brief summary.
+The news articles related to a particular stock are fetched using OpenAI API. The articles returned by the API are summaries written by GPT-3.5, a state-of-the-art language model by OpenAI. Each news article includes a clickable headline and a brief summary.
 
 This component fetches the news data when it is mounted or when the ticker prop changes. All API requests are handled in an asynchronous manner to provide a smooth user experience.
 
@@ -34,6 +34,7 @@ This component fetches the news data when it is mounted or when the ticker prop 
 
 ## Video Demo
 
+https://github.com/ronimikhaylov/web-stock-analyzer/assets/105238029/b730b47a-ea6f-474d-b361-7732d5f07a78
 
 Click the above image to see a video demonstration of the application. This video covers all the major features of the application, including tracking real-time stock prices, visualizing historical data, and fetching the latest news articles related to a particular stock.
 
